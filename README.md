@@ -1,4 +1,4 @@
-# 📈 Customer Churn Prediction with MLflow
+#  Customer Churn Prediction with MLflow
 
 This project demonstrates a complete machine learning pipeline using Scikit-learn and MLflow. It includes training, logging parameters and metrics, and evaluating models.
 
@@ -24,7 +24,7 @@ python train.py
 
 5. Predict using logged model:
 ```bash
-python predict.py
+python app.py
 ```
 
 6. Evaluate manually:
