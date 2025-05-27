@@ -1,4 +1,9 @@
 #  Customer Churn Prediction with MLflow
+A production-ready customer churn prediction system using Scikit-learn and MLflow.
+Includes model training with experiment logging, detailed evaluation reports, and an interactive Streamlit app to predict churn based on user input.
+Emphasizes reproducibility, deployment-readiness, and modular ML pipeline architecture.
+
+
 
 This project demonstrates a complete machine learning pipeline using Scikit-learn and MLflow. It includes training, logging parameters and metrics, and evaluating models.
 

@@ -6,9 +6,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, accuracy_score, classification_report
 
 # Load dataset
-df = pd.read_csv("data/churn_data.csv")
+df = pd.read_csv("D:/Azure/GENAI/EXP/mlflow-churn-pipeline/data/churn_data.csv")
 X = pd.get_dummies(df.drop(columns=["customer_id", "churned"]))
 y = df["churned"]
+print("Training columns:", list(X.columns))
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -30,7 +31,11 @@ with mlflow.start_run():
     mlflow.log_param("max_depth", 5)
     mlflow.log_metric("accuracy", acc)
     mlflow.log_metric("f1_score", f1)
-    mlflow.sklearn.log_model(clf, "model")
+    #mlflow.sklearn.log_model(clf, "model")
+    input_sample = X_test.iloc[:1].astype("float64")# This tells MLflow: “Treat all numeric columns as floats.”
+    mlflow.sklearn.log_model(clf, "model", input_example=input_sample)
+    
+
 
     # Save report to file and log it as an artifact
     with open("classification_report.txt", "w") as f:
